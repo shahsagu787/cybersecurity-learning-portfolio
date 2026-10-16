@@ -40,7 +40,7 @@ Analyze Layer 7 (Application Layer) web traffic using Browser Developer Tools an
 #### 1. Server Fingerprinting & Security Headers (`GET` Request)
 Inspecting the response headers from `httpforever.com` revealed that the domain is fronted by `Server: cloudflare`. In addition to identifying the server software, the response included critical browser security headers such as `Content-Security-Policy`, `X-Frame-Options: DENY` (clickjacking protection), and `X-Content-Type-Options: nosniff` (MIME-sniffing protection).
 
-![HTTP Response Header Server](ResponseHeader_Server.jpg)
+![HTTP Response Header Server](ResponseHeader_Server.png)
 
 #### 2. `POST` Request Form Data Payload
 When submitting the login form on `the-internet.herokuapp.com`, the browser sent an HTTP `POST` request to the `authenticate` endpoint. Inspecting the **Payload** tab revealed the submitted credentials (`username: tomsmith` and `password: SuperSecretPassword!`) inside the request body. This highlights why login forms must strictly enforce HTTPS (TLS)—over unencrypted HTTP, anyone sniffing network traffic can read `POST` form payloads in cleartext.

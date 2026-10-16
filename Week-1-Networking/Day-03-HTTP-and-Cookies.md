@@ -60,7 +60,7 @@ Decoding the JWT in CyberChef demonstrated that while a JWT is cryptographically
 * **MFA Status (`mfa_verified`):** `true`
 * **Timestamps:** Issued At (`iat: 1760618400`) and Expiration (`exp: 1760622000`)
 
-![CyberChef JWT Decode](JWT%20Decode.png)
+![CyberChef JWT Decode](JWT_Decode.png)
 
 ---
 

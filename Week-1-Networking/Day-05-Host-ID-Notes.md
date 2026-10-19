@@ -20,7 +20,7 @@ When analyzing suspicious network traffic, identifying *who* and *what* generate
 * **Filter:** `dhcp` (or `bootp`)
 * **Artifacts Found:** By expanding the `Bootstrap Protocol` details, I identified the host's **MAC Address** (`f8:ff:c2:04:a5:7b`) and the initial **Hostname** (`jeremiahs-MBP`).
 *(Screenshot: Wireshark showing DHCP Request details)*
-![DHCP Filter Capture](dhcp-filter.jpg)
+![DHCP Filter Capture](dhcp-filter.png)
 
 **2. NBNS (NetBIOS Name Service)**
 * **Filter:** `nbns`
@@ -32,13 +32,13 @@ When analyzing suspicious network traffic, identifying *who* and *what* generate
 * **Filter:** `kerberos.CNameString`
 * **Artifacts Found:** Revealed the exact Active Directory **Windows Username** (`desktop-hsjd5r8$`) of the machine authenticating to the domain during the packet capture.
 *(Screenshot: Wireshark showing Kerberos CNameString)*
-![Kerberos Filter Capture](kerberos-filter.jpg)
+![Kerberos Filter Capture](kerberos-filter.png)
 
 **4. HTTP User-Agent**
 * **Filter:** `http.user_agent`
 * **Artifacts Found:** Extracted the unencrypted `User-Agent` string (`Microsoft NCSI`), revealing specific operating system background telemetry communicating with `www.msftconnecttest.com`.
 *(Screenshot: Wireshark showing HTTP User-Agent string)*
-![HTTP User-Agent Capture](user-agent-filter.jpg)
+![HTTP User-Agent Capture](user-agent-filter.png)
 
 ---
 

@@ -69,7 +69,7 @@ AuthenticationEvents
 
 *(Screenshot: Completing Question 17/17 in KC7 KQL 101 while executing `let` variable correlation queries across `Employees`, `OutboundNetworkEvents`, and `AuthenticationEvents`)*
 
-![KC7 KQL 101 Queries and Execution](kql-query.jpg)
+![KC7 KQL 101 Queries and Execution](kql-query.png)
 
 ---
 

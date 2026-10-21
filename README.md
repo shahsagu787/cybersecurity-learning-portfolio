@@ -18,7 +18,7 @@ Welcome to my cybersecurity lab portfolio! I am documenting my 336-hour hands-on
 
   * **Day 6:** [Malicious PCAP Forensics & VirusTotal OSINT Report](Week-1-Networking/Day-06-Malicious-PCAP-Report.md)
 
-  * **Day 7:** [Intro to KQL & KC7 SOC Breach Investigation](Week-1-Networking/Day-07-KC7-KQL-Notes.md)
+  * **Day 7:** [Intro to KQL & KC7 SOC Breach Investigation](Week-1-Networking/Day-07-KC7-KQL-Investigation-Notes.md)
 
 * \[ \] **Week 2:** Linux Internals, Permissions & OverTheWire Bandit 0–33 (`/Week-2-Linux-Security`)
 

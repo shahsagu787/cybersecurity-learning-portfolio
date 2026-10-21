@@ -6,17 +6,17 @@ Welcome to my cybersecurity lab portfolio! I am documenting my 336-hour hands-on
 
 * \[x\] **Week 1:** Network Protocols, Wireshark Packet Analysis & Intro to KQL (`/Week-1-Networking`)
 
-  * **Day 1:** [OSI Model, TCP/IP & 3-Way Handshake](Week-1-Networking/TCP_Handshake_Lab-Fixed.md)
+  * **Day 1:** [OSI Model, TCP/IP & 3-Way Handshake](Week-1-Networking/Day-01-TCP-Handshake.md)
 
-  * **Day 2:** [DNS, ARP, DHCP & Traffic Filtering](Week-1-Networking/DNS_ARP_Traffic_Lab-v2.md)
+  * **Day 2:** [DNS, ARP, DHCP & Traffic Filtering](Week-1-Networking/Day-02-DNS-and-ARP.md)
 
   * **Day 3:** [HTTP/HTTPS Internals, Headers, Cookies & JWTs](Week-1-Networking/Day-03-HTTP-and-Cookies.md)
 
   * **Day 4:** [Subnetting, CIDR, NAT & RFC 1918 Private IPs](Week-1-Networking/Day-04-Subnets-and-IPs.md)
 
-  * **Day 5:** [Identifying Hosts in PCAPs](Week-1-Networking/Day-05-Host-ID-Notes-v3.md) & [Python Port Checker Script](Week-1-Networking/Day-05-Port-Checker.py)
+  * **Day 5:** [Identifying Hosts in PCAPs](Week-1-Networking/Day-05-Host-ID-Notes.md) & [Python Port Checker Script](Week-1-Networking/Day-05-Port-Checker.py)
 
-  * **Day 6:** [Malicious PCAP Forensics & VirusTotal OSINT Report](Week-1-Networking/Day-06-First-PCAP-Report.md)
+  * **Day 6:** [Malicious PCAP Forensics & VirusTotal OSINT Report](Week-1-Networking/Day-06-Malicious-PCAP-Report.md)
 
   * **Day 7:** [Intro to KQL & KC7 SOC Breach Investigation](Week-1-Networking/Day-07-KC7-KQL-Notes.md)
 

@@ -30,7 +30,7 @@ During incident response, SOC analysts hunt for persistence (mechanisms attacker
 * **Extraction & Pivoting:** Connected via `openssl s_client -connect localhost:31790 -quiet` and submitted the current credential, which returned an RSA Private Key. Because the OverTheWire server recently blocked SSH connections originating from `localhost` to conserve resources, I saved the private key to my local WSL machine (`nano b17.key`), locked the permissions (`chmod 600 b17.key`), and authenticated securely from the outside.
 
 *(Screenshot: Nmap port scanning, extracting the RSA private key via OpenSSL, and SSH key authentication)*
-![Bandit Level 16 Nmap and SSH](bandit16.jpg)
+![Bandit Level 16 Nmap and SSH](bandit16.png)
 
 ---
 

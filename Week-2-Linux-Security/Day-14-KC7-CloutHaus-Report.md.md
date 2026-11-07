@@ -96,7 +96,7 @@ In addition to the CloutHaus KQL investigation, I completed **KC7 Module 05: Vir
 
 | CloutHaus Investigation Badge | VirusTotal Fundamentals Badge |
 | :---: | :---: |
-| ![Clout Defender Badge](<CloutDefender Badge.jpg>) | ![VirusTotal Fundamentals Badge](VirusTotalFundamentals.png) |
+| ![Clout Defender Badge](<CloutDefender Badge.png>) | ![VirusTotal Fundamentals Badge](VirusTotalFundamentals.png) |
 
 ---
 

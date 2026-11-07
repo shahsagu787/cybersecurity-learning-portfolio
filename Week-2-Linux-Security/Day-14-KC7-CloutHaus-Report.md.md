@@ -84,7 +84,7 @@ AuthenticationEvents
 ```
 
 *(Screenshot: Executing KQL queries in Azure Data Explorer during Question 13/13 of the CloutHaus investigation, exposing forwarded bank statements and tax documents to `noreply@influencer-deals.net`)*
-![KC7 CloutHaus KQL Investigation](<KC7 CloutHaus Query.png>)
+![KC7 CloutHaus KQL Investigation](<KC7CloutHausQuery.png>)
 
 ---
 

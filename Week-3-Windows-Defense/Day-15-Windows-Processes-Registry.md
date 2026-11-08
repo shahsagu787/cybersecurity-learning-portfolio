@@ -45,7 +45,7 @@ Using **Sysinternals Process Explorer** (`procexp64.exe`), I inspected the activ
      * `procexp64.exe` (`PID 26232`) — Sysinternals Process Explorer
 
 *(Screenshot: Inspecting Windows background services, `lsass.exe`, and the `explorer.exe` parent-child process tree in Sysinternals Process Explorer)*
-![Process Explorer Tree View](ProcessExplorer.jpg)
+![Process Explorer Tree View](ProcessExplorer.png)
 
 ---
 
@@ -66,7 +66,7 @@ Using **Sysinternals Autoruns** (`Autoruns64.exe`) filtered to the **Logon** tab
    * `FxSound.lnk` — `(Verified) FxSound, LLC` (`C:\Program Files\FxSound LLC\FxSound\FxSound.exe`)
 
 *(Screenshot: Auditing `HKCU` and `HKLM` Registry `Run` persistence keys and digital signature verification in Sysinternals Autoruns)*
-![Sysinternals Autoruns Logon Tab](Autoruns.jpg)
+![Sysinternals Autoruns Logon Tab](Autoruns.png)
 
 ---
 
@@ -92,11 +92,11 @@ Rather than immediately assuming compromise based on a $1/69$ or $2/70$ VirusTot
    * Noted that security processes such as `MpDefenderCoreService.exe` (`PID 7556`) and Quick Heal services (`qhccmsvc.exe`, `bdssvc.exe`, `wssrvc.exe`) displayed `"The system cannot..."` in the VirusTotal column. This is expected behavior: modern antivirus engines run as **Protected Process Light (PPL)** kernel-protected services, preventing even Administrator-level tools from opening read handles to their executables.
 
 *(Screenshot: Process Explorer with `Verified Signer` and live `VirusTotal` columns enabled, highlighting `ss_conn_service2.exe` and `sqlwriter.exe` alongside Protected Process Light antivirus services)*
-![Process Explorer VirusTotal and Verified Signer Triage](image_d3b496.jpg)
+![Process Explorer VirusTotal and Verified Signer Triage](RedFlagged.png)
 
 | `ss_conn_service2.exe` (`1/69` Heuristic False Positive) | `ss_conn_service.exe` (`2/70` Heuristic False Positive) |
 | :---: | :---: |
-| ![VirusTotal ss_conn_service2.exe Analysis](image_d3b81e.png) | ![VirusTotal ss_conn_service.exe Analysis](image_d3b474.png) |
+| ![VirusTotal ss_conn_service2.exe Analysis](ss-conn-service2.png) | ![VirusTotal ss_conn_service.exe Analysis](ss-conn-service.png) |
 
 ---
 

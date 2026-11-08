@@ -42,7 +42,7 @@ Using **Sysinternals Process Explorer** (`procexp64.exe`), I inspected the activ
      * `procexp64.exe` (`PID 26232`) — Sysinternals Process Explorer
 
 *(Screenshot: Inspecting Windows background services, `lsass.exe`, and the `explorer.exe` parent-child process tree in Sysinternals Process Explorer)*
-![Sysinternals Process Explorer Hierarchy](ProcessExplorer.jpg)
+![Sysinternals Process Explorer Hierarchy](ProcessExplorer.png)
 
 ---
 
@@ -63,7 +63,7 @@ Using **Sysinternals Autoruns** (`Autoruns64.exe`) filtered to the **Logon** tab
    * `FxSound.lnk` — `(Verified) FxSound, LLC` (`C:\Program Files\FxSound LLC\FxSound\FxSound.exe`)
 
 *(Screenshot: Auditing `HKCU` and `HKLM` Registry `Run` persistence keys and digital signature verification in Sysinternals Autoruns)*
-![Sysinternals Autoruns Registry Persistence](Autoruns.jpg)
+![Sysinternals Autoruns Registry Persistence](Autoruns.png)
 
 ---
 

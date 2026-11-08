@@ -1,13 +1,16 @@
 # Cybersecurity Portfolio - Week 3, Day 15
+
 ## Topic: Windows Process Genealogy, Registry Persistence & Sysinternals (`Process Explorer` & `Autoruns`)
 
-**Objective:** 
-Transition from Linux process and persistence auditing (`ps aux`, `cron`, `.bashrc`) to Windows endpoint forensics using the **Microsoft Sysinternals Suite** (`Process Explorer` and `Autoruns`). Analyze live Windows parent-child process trees (`services.exe` $\rightarrow$ `svchost.exe` and `explorer.exe` $\rightarrow$ user applications), distinguish betweennormal system daemons and malicious process masquerading, and audit Windows Registry `Run` keys (`HKLM` and `HKCU`) for startup persistence.
+**Objective:**
+Transition from Linux process and persistence auditing (`ps aux`, `cron`, `.bashrc`) to Windows endpoint forensics using the **Microsoft Sysinternals Suite** (`Process Explorer` and `Autoruns`). Analyze live Windows parent-child process trees (`services.exe` $\rightarrow$ `svchost.exe` and `explorer.exe` $\rightarrow$ user applications), distinguish between normal system daemons and malicious process masquerading, audit Windows Registry `Run` keys (`HKLM` and `HKCU`) for startup persistence, and perform real-world SOC false-positive triage using cryptographic digital signatures and VirusTotal hash lookups.
 
 ### :hammer_and_wrench: Tools & Environment
+
 * **Host OS:** Windows (`SAGARSHAH\shahs`)
 * **Forensic Utilities:** Microsoft Sysinternals **Process Explorer** (`procexp64.exe`) & **Autoruns** (`Autoruns64.exe`)
-* **Reference Frameworks:** 13Cubed / SANS Windows Process Genealogy, MITRE ATT&CK (`T1547.001`, `T1036`, `T1059.001`)
+* **Threat Intelligence:** VirusTotal (Live SHA-256 Hash Integration & YARA/Heuristic Triage)
+* **Reference Frameworks:** 13Cubed / SANS Windows Process Genealogy, MITRE ATT&CK (`T1547.001`, `T1036`, `T1059.001`, `T1553.002`)
 
 ---
 
@@ -42,7 +45,7 @@ Using **Sysinternals Process Explorer** (`procexp64.exe`), I inspected the activ
      * `procexp64.exe` (`PID 26232`) — Sysinternals Process Explorer
 
 *(Screenshot: Inspecting Windows background services, `lsass.exe`, and the `explorer.exe` parent-child process tree in Sysinternals Process Explorer)*
-![Sysinternals Process Explorer Hierarchy](ProcessExplorer.png)
+![Process Explorer Tree View](ProcessExplorer.jpg)
 
 ---
 
@@ -63,9 +66,40 @@ Using **Sysinternals Autoruns** (`Autoruns64.exe`) filtered to the **Logon** tab
    * `FxSound.lnk` — `(Verified) FxSound, LLC` (`C:\Program Files\FxSound LLC\FxSound\FxSound.exe`)
 
 *(Screenshot: Auditing `HKCU` and `HKLM` Registry `Run` persistence keys and digital signature verification in Sysinternals Autoruns)*
-![Sysinternals Autoruns Registry Persistence](Autoruns.png)
+![Sysinternals Autoruns Logon Tab](Autoruns.jpg)
+
+---
+
+### :shield: Part 4: Real-World SOC Triage — Investigating VirusTotal False Positives via Digital Signatures
+
+After enabling **Options $\rightarrow$ Verify Image Signatures** and **Options $\rightarrow$ VirusTotal.com $\rightarrow$ Check VirusTotal.com** in Process Explorer (elevated as Administrator), three running background services returned non-zero VirusTotal detection ratios in red:
+* **`ss_conn_service2.exe` (`PID 8072`):** Flagged as `2/76` (`1/69` on re-analysis, matching a crowdsourced YARA rule and `Jiangmin: TrojanSpy.Stealer.adnz`).
+* **`ss_conn_service.exe` (`PID 8124`):** Flagged as `2/70` (`Cynet: Malicious` and `Jiangmin: Trojan.Generic.henfo`).
+* **`sqlwriter.exe` (`PID 7968`):** Flagged as `1/76`.
+
+#### 4-Step SOC False-Positive Verification Methodology
+Rather than immediately assuming compromise based on a $1/69$ or $2/70$ VirusTotal score, I performed a structured Tier 1/Tier 2 false-positive triage:
+
+1. **Cryptographic Code Signing (`Verified Signer` Column — `MITRE T1553.002`):**
+   * Both `ss_conn_service.exe` and `ss_conn_service2.exe` (*MSS CS Connectivity Service* by `DEVGURU Co., LTD.`) carry a valid, cryptographically verified signature from **`(Verified) Samsung Electronics CO., LTD.`** (the official Samsung Mobile USB connectivity driver).
+   * `sqlwriter.exe` (*SQL Server VSS Writer - 64 Bit*) carries a verified **`(Verified) Microsoft Corporation`** signature.
+2. **Heuristic Noise vs. Consensus Detection:**
+   * Over $97\%$ of security vendors ($68/70$ engines, including Microsoft Defender, CrowdStrike, Kaspersky, and Avast) classified the binaries as **Undetected (Clean)**.
+   * Inspecting VirusTotal behavioral tags (`long-sleeps`, `checks-disk-space`, `detect-debug-environment`) explained why aggressive heuristic engines (`Jiangmin` and `Cynet`) misfired: hardware USB listener daemons remain idle/sleeping in the background until a mobile device is connected over USB.
+3. **Community Telemetry Verification:**
+   * VirusTotal's `COMMUNITY` tab (`30` and `10` community confirmations) corroborated that these exact SHA-256 hashes belong to legitimate Samsung USB driver packages.
+4. **Protected Process Light (`PPL`) Anti-Tamper Verification:**
+   * Noted that security processes such as `MpDefenderCoreService.exe` (`PID 7556`) and Quick Heal services (`qhccmsvc.exe`, `bdssvc.exe`, `wssrvc.exe`) displayed `"The system cannot..."` in the VirusTotal column. This is expected behavior: modern antivirus engines run as **Protected Process Light (PPL)** kernel-protected services, preventing even Administrator-level tools from opening read handles to their executables.
+
+*(Screenshot: Process Explorer with `Verified Signer` and live `VirusTotal` columns enabled, highlighting `ss_conn_service2.exe` and `sqlwriter.exe` alongside Protected Process Light antivirus services)*
+![Process Explorer VirusTotal and Verified Signer Triage](image_d3b496.jpg)
+
+| `ss_conn_service2.exe` (`1/69` Heuristic False Positive) | `ss_conn_service.exe` (`2/70` Heuristic False Positive) |
+| :---: | :---: |
+| ![VirusTotal ss_conn_service2.exe Analysis](image_d3b81e.png) | ![VirusTotal ss_conn_service.exe Analysis](image_d3b474.png) |
 
 ---
 
 ### :bulb: Conclusion
-Successfully analyzed live Windows process trees and Registry autostart mechanisms using Microsoft Sysinternals **Process Explorer** and **Autoruns**. Established a baseline understanding of legitimate parent-child relationships (`services.exe` $\rightarrow$ `svchost.exe` and `explorer.exe` $\rightarrow$ user apps) versus high-severity SOC indicators (such as `EXCEL.EXE` or `winword.exe` spawning `powershell.exe` or unverified binaries hiding inside `CurrentVersion\Run`).
+
+Successfully analyzed live Windows process trees and Registry autostart mechanisms using Microsoft Sysinternals **Process Explorer** and **Autoruns**, and performed end-to-end false-positive alert triage. Adding this false-positive investigation demonstrates a critical real-world SOC skill: correlating **Verified Digital Signatures** and **Behavioral Heuristics** to distinguish benign hardware drivers (`Samsung / DEVGURU` and `Microsoft SQL Writer`) from actual malware.

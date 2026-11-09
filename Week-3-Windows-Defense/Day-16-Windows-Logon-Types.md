@@ -58,7 +58,7 @@ At **`09-11-2026 07:26:27 PM`**, Windows recorded an **`Audit Failure` (`Event I
   * **`Sub Status: 0xC0000380`** (`STATUS_SMARTCARD_WRONG_PIN` — Indicates an incorrect Windows Hello PIN / Next Generation Credentials [NGC] PIN entry).
 
 *(Screenshot: Inspecting `Event ID 4625` (`Audit Failure`) at `07:26:27 PM` showing `Logon Type: 2`, `Source Network Address: 127.0.0.1`, and failure status codes `0xC000006D` / `0xC0000380`)*
-![Event ID 4625 Logon Type 2 Failure](LogonType2-ID4625.jpg)
+![Event ID 4625 Logon Type 2 Failure](LogonType2-ID4625.png)
 
 ---
 
@@ -68,7 +68,7 @@ Exactly **3 seconds later** at **`09-11-2026 07:26:30 PM`**, entering the valid 
 * **Forensic Correlation:** Seeing an `Event ID 4625` at `07:26:27 PM` immediately followed by a single `Event ID 4624` (`Logon Type 7`) at `07:26:30 PM` from `127.0.0.1` represents a classic **benign user mistype** at the physical keyboard—whereas hundreds of `4625` events within 3 seconds from an external IP would indicate an automated brute-force attack.
 
 *(Screenshot: Inspecting `Event ID 4624` (`Audit Success`) at `07:26:30 PM` confirming a successful screen unlock with `Logon Type: 7`)*
-![Event ID 4624 Logon Type 7 Unlock](LogonType7-ID4624.jpg)
+![Event ID 4624 Logon Type 7 Unlock](LogonType7-ID4624.png)
 
 ---
 

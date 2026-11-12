@@ -65,7 +65,7 @@ While the terminal output simply printed `Hello SOC`, inspecting **Event Viewer*
 * **Cryptographic Hashes:** `SHA256=60C9B29B43624DD8AF6B6A7B26147753BE6AEEF65098B9A503CC50850AFE410F`
 * **Parent Process:** `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe` (`ParentProcessId: 404`)
 
-![Sysmon Event ID 1 Encoded PowerShell](Sysmon-EventID1-EncodedPS.jpg)
+![Sysmon Event ID 1 Encoded PowerShell](Sysmon-EventID1-EncodedPS.png)
 *(Screenshot: Side-by-side view of PowerShell executing the `-EncodedCommand` payload and Sysmon Event ID 1 capturing the exact `CommandLine` and `SHA256` hash)*
 
 ---

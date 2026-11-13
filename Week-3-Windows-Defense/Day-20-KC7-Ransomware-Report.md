@@ -57,7 +57,7 @@ FileCreationEvents
 * **SHA-256 Hash (`Raisin_Kane_Promo_Offer.docx`):** `bd886046266b909a8ca5f19f16e5606baf73194a70632c81fdc4...`
 * **Additional Victims:** Over the next $48\text{ hours}$ (`2024-05-01` to `2024-05-03`), multiple other hospital employees (`loortiz`, `mawilliams1`, `rucarbonaro`, `chkim`, `gemattingly`, `wibuck`, `aljean`, `shgossett`) downloaded the same malvertising lure across `chrome.exe` and `edge.exe`.
 
-![KC7 Initial Access Investigation](KC7-Jojo's-Hospital.jpg)
+![KC7 Initial Access Investigation](KC7-Jojo's-Hospital.png)
 *(Screenshot: Querying `OutboundNetworkEvents` and `FileCreationEvents` in KQL to pinpoint Patient Zero (`evbrowne` on `RQJQ-MACHINE`) downloading `Raisin_Kane_Promo_Offer.docx` at `9:56:50 AM`)*
 
 ---
@@ -80,7 +80,7 @@ FileCreationEvents
   * **Spawning Process:** `explorer.exe`
   * **SHA-256 Hash (`cobaltstrike.exe`):** `0e7e0e888f22b5cc83ce502560f9f331d8...`
 
-![KC7 Cobalt Strike Drop](KC7-Jojo's-Hospital2.jpg)
+![KC7 Cobalt Strike Drop](KC7-Jojo's-Hospital2.png)
 *(Screenshot: Discovering `C:\ProgramData\cobaltstrike.exe` dropped on `RQJQ-MACHINE` at `9:57:17 AM`, 27 seconds after the `.docx` lure download)*
 
 ---
@@ -111,7 +111,7 @@ ProcessEvents
   ```
 * **Ransomware Handoff (`LockByte`):** Following the theft of `important_network_info.zip`, `SharkFin7` sold their persistent access to the **`LockByte`** ransomware group, who used the stolen network map and foothold to encrypt critical hospital systems and demand ransom.
 
-![KC7 Exfiltration and Attack Summary](KC7-Jojo's-Hospital3.jpg)
+![KC7 Exfiltration and Attack Summary](KC7-Jojo's-Hospital3.png)
 *(Screenshot: Tracing lateral movement to `AMFB-MACHINE` (`andavis`), capturing data exfiltration via `cmd.exe /c curl`, and completing the 27-question breach reconstruction)*
 
 ---

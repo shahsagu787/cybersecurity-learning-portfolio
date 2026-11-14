@@ -22,10 +22,19 @@ Welcome to my cybersecurity lab portfolio! I am documenting my 336-hour hands-on
   - **Day 13:** [Leaked Secrets in Git & Bandit 27–33 Finale](Week-2-Linux-Security/Day-13-Bandit-27-to-33-Git-Leaks.md)
   - **Day 14:** [KC7 CloutHaus SOC Breach Report & VirusTotal Pivoting](Week-2-Linux-Security/Day-14-KC7-CloutHaus-Report.md)
 
-- [ ] **Week 3:** Windows Internals, Active Directory, Event Logs & Sysmon (`/Week-3-Windows-Defense`)
+- [x] **Week 3:** Windows Internals, Active Directory, Event Logs & Sysmon (`/Week-3-Windows-Defense`)
+  - **Day 15:** [Windows Processes, Parent-Child Trees & Registry Persistence](Week-3-Windows-Defense/Day-15-Windows-Processes-Registry.md)
+  - **Day 16:** [Windows Auth (NTLM vs. Kerberos), Event IDs 4624/4625 & Logon Types](Week-3-Windows-Defense/Day-16-Windows-Logon-Types.md)
+  - **Day 17:** [Auditing Account Creation & Critical Event IDs (4688, 4720, 4726, 4732, 7045)](Week-3-Windows-Defense/Day-17-Critical-Event-IDs.md)
+  - **Day 18:** [Installing & Querying Microsoft Sysmon (Event IDs 1, 3 & 22)](Week-3-Windows-Defense/Day-18-Sysmon-Setup-Guide.md)
+  - **Day 19:** [LOLBins, Obfuscated PowerShell & UTF-16LE Base64 Analysis](Week-3-Windows-Defense/Day-19-LOLBins-Notes.md) & [Python Base64 Decoder Script](Week-3-Windows-Defense/Day-19-Base64-Decoder.py)
+  - **Day 20:** [KC7 Jojo's Hospital Two-Stage Ransomware Investigation Report](Week-3-Windows-Defense/Day-20-KC7-Ransomware-Report.md)
+  - **Day 21:** [Email Header Forensics (SPF/DKIM/DMARC) & KC7 Valdoria Phishing Report](Week-3-Windows-Defense/Day-21-Email-Phishing-Forensics.md)
+
 - [ ] **Week 4:** Nmap Reconnaissance, CyberChef De-obfuscation & MITRE ATT&CK (`/Week-4-Recon-and-Frameworks`)
 
 ## 🛠️ Tools Practiced
 * **Network & Recon:** Wireshark, Nmap, Netcat (`nc`), OpenSSL, `curl`, `nslookup`, Python (`socket`)
-* **Endpoint, Linux & SIEM:** Linux CLI (Bash, `cron`, `chmod`, `find`, `ss`, `git`), Windows Event Viewer, Sysmon, KC7 Cyber (Azure Data Explorer / KQL), PowerShell (`Get-FileHash`)
-* **Threat Intel & Decoding:** VirusTotal, CyberChef, Browser DevTools, Python Log Parsing
+* **Windows Defense & Endpoint Forensics:** Sysinternals Process Explorer, Sysinternals Autoruns, Microsoft Sysmon (SwiftOnSecurity XML), Windows Event Viewer (`eventvwr.msc`), `auditpol`, Digital Signature Triage
+* **Linux & SIEM Threat Hunting:** Linux CLI (Bash, `cron`, `chmod`, `find`, `ss`, `git`), KC7 Cyber (Azure Data Explorer / KQL), PowerShell (`Get-FileHash`, `-EncodedCommand`)
+* **Threat Intel & Decoding:** VirusTotal, GCHQ CyberChef, LOLBAS Project, Email Header Analysis (SPF/DKIM/DMARC), Python (`base64` / `UTF-16LE` Decoding & Log Parsing)

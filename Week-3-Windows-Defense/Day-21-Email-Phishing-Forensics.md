@@ -47,7 +47,7 @@ Authentication-Results: mx.valdoriantimes.news;
 
 All four investigation screenshots below trace a single, continuous intrusion against **Sonia Gose** (`sonia_gose@valdoriantimes.news`), an employee at *The Valdorian Times* operating on workstation **`UL0M-MACHINE`** (`sogose`, IP `10.10.0.3`).
 
-#### Stage 1: Spear-Phishing Delivery via Recruitment Lure (`KC7Valdoria1.jpg`)
+#### Stage 1: Spear-Phishing Delivery via Recruitment Lure (`KC7Valdoria1.png`)
 
 By querying the `Employees` and `Email` tables for **Sonia Gose**, I identified the initial spear-phishing email that bypassed the mail gateway (`verdict: CLEAN`):
 
@@ -66,7 +66,7 @@ Email
 * **Gateway Verdict:** `CLEAN` (Passed authentication checks because the attacker used a valid `@gmail.com` account rather than spoofing `@valdoriantimes.news` directly)
 * **Embedded Weaponized Link:** `https://promotionrecruit.com/published/Valdorian_Times_Editorial_Offer_Letter.docx`
 
-![KC7 Valdoria Stage 1 Phishing Email](KC7Valdoria1.jpg)
+![KC7 Valdoria Stage 1 Phishing Email](KC7Valdoria1.png)
 *(Screenshot: Identifying the recruitment spear-phishing email from `newspaper_jobs@gmail.com` to `sonia_gose@valdoriantimes.news` delivering the malicious `.docx` link)*
 
 ---
@@ -120,7 +120,7 @@ ProcessEvents
 
 ---
 
-#### Stage 4: Reverse RDP Tunneling (`plink.exe`) & Post-Exploitation Discovery (`KC7Valdoria4.jpg`)
+#### Stage 4: Reverse RDP Tunneling (`plink.exe`) & Post-Exploitation Discovery (`KC7Valdoria4.png`)
 
 The following morning (`2024-01-06`), inspecting `ProcessEvents` for `cmd.exe` activity on `UL0M-MACHINE` revealed how the attackers bypassed firewall restrictions to gain interactive Remote Desktop access and enumerate the host:
 
@@ -138,7 +138,7 @@ ProcessEvents
   * **`07:50:51 AM`:** `ipconfig` (Enumerated local IP address and subnet mask)
   * **`08:08:17 AM`:** `arp -a` (Enumerated adjacent LAN hosts via the ARP cache for lateral movement)
 
-![KC7 Valdoria Stage 4 Tunneling and Discovery](KC7Valdoria4.jpg)
+![KC7 Valdoria Stage 4 Tunneling and Discovery](KC7Valdoria4.png)
 *(Screenshot: Tracing the attacker's `plink.exe -R 3389:localhost:3389` reverse RDP tunnel followed by `whoami`, `ipconfig`, and `arp -a` discovery commands)*
 
 ---

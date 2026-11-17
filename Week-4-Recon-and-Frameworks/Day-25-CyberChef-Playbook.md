@@ -1,4 +1,4 @@
-# Cybersecurity Portfolio - Week 4, Day 24 & 25
+# Cybersecurity Portfolio - Week 4, Day 25
 
 ## Topic: Applied Cryptography, Hashing, TLS & The CyberChef De-obfuscation Playbook
 

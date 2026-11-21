@@ -41,7 +41,7 @@ Analyze five foundational **MITRE ATT&CK Enterprise** techniques (`T1566`, `T105
 #### 1. `T1566` — Phishing (`DET0070`)
 Phishing relies on electronically delivered social engineering (spearphishing attachments, links, or SaaS/third-party service lures) to gain initial access or harvest credentials. MITRE's detection strategy (`DET0070`) highlights cross-platform correlation across email metadata, file writes, Office macro child processes (`AN0191`), IdP login/MFA anomalies (`AN0192`), and SaaS collaboration events (`AN0193`).
 
-![MITRE ATT&CK T1566 Phishing Overview](T1566-info.jpg)
+![MITRE ATT&CK T1566 Phishing Overview](T1566-info.png)
 *(Screenshot: MITRE ATT&CK overview for `T1566 — Phishing`, covering Initial Access tactic, sub-techniques `T1566.001`–`T1566.004`, and target platforms)*
 
 ![MITRE ATT&CK T1566 Detection Strategy](T1566-Detection.png)
@@ -63,7 +63,7 @@ Adversaries abuse PowerShell (`Start-Process`, `Invoke-Command`, in-memory downl
 #### 3. `T1078` — Valid Accounts (`DET0560`)
 Compromised credentials allow adversaries to authenticate natively to VPNs, webmail, RDP, cloud services, or local hosts—often without dropping malware. Detection Strategy `DET0560` spans Windows logon anomalies (`AN1543`), Linux SSH/`sudo` misuse (`AN1544`), unusual interactive/service account child processes (`AN1545`), IdP impossible travel/MFA failures (`AN1546`), and container/kubeconfig abuse (`AN1547`).
 
-![MITRE ATT&CK T1078 Valid Accounts Overview](T1078-info.jpg)
+![MITRE ATT&CK T1078 Valid Accounts Overview](T1078-info.png)
 *(Screenshot: MITRE ATT&CK overview for `T1078 — Valid Accounts`, spanning multiple tactics including Initial Access, Persistence, Privilege Escalation, and Defense Evasion/Stealth)*
 
 ![MITRE ATT&CK T1078 Detection Strategy](T1078-Detection.png)

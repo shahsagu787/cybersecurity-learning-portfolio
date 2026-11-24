@@ -31,10 +31,17 @@ Welcome to my cybersecurity lab portfolio! I am documenting my 336-hour hands-on
   - **Day 20:** [KC7 Jojo's Hospital Two-Stage Ransomware Investigation Report](Week-3-Windows-Defense/Day-20-KC7-Ransomware-Report.md)
   - **Day 21:** [Email Header Forensics (SPF/DKIM/DMARC) & KC7 Valdoria Phishing Report](Week-3-Windows-Defense/Day-21-Email-Phishing-Forensics.md)
 
-- [ ] **Week 4:** Nmap Reconnaissance, CyberChef De-obfuscation & MITRE ATT&CK (`/Week-4-Recon-and-Frameworks`)
+- [x] **Week 4:** Nmap Reconnaissance, CyberChef De-obfuscation, MITRE ATT&CK & Python Toolkit (`/Week-4-Recon-and-Frameworks`)
+  - **Day 22:** [Nmap Scanning Basics & Port Discovery](Week-4-Recon-and-Frameworks/Day-22-Nmap-Scanning-Basics.md)
+  - **Day 23:** [Nmap Service Version Detection & NSE Scripts](Week-4-Recon-and-Frameworks/Day-23-Nmap-Version-and-Scripts.md)
+  - **Day 24:** [Applied Cryptography, File Hashing & TLS Inspection](Week-4-Recon-and-Frameworks/Day-24-Crypto-and-TLS.md)
+  - **Day 25:** [Malware De-obfuscation Playbook with CyberChef](Week-4-Recon-and-Frameworks/Day-25-CyberChef-Playbook.md)
+  - **Day 26:** [MITRE ATT&CK Enterprise Framework Mapping](Week-4-Recon-and-Frameworks/Day-26-MITRE-ATTACK-Map.md)
+  - **Day 27:** [Cybersecurity Certifications & KC7 Investigation Milestone](Week-4-Recon-and-Frameworks/Day-27-Certificates-Earned.md)
+  - **Day 28:** [Phase 1 Python Security Toolkit](Week-4-Recon-and-Frameworks/Day-28-Phase1-Toolkit.py) & [Toolkit Documentation & Test Report](Week-4-Recon-and-Frameworks/Day-28-Phase1-Toolkit-README.md)
 
 ## 🛠️ Tools Practiced
 * **Network & Recon:** Wireshark, Nmap, Netcat (`nc`), OpenSSL, `curl`, `nslookup`, Python (`socket`)
 * **Windows Defense & Endpoint Forensics:** Sysinternals Process Explorer, Sysinternals Autoruns, Microsoft Sysmon (SwiftOnSecurity XML), Windows Event Viewer (`eventvwr.msc`), `auditpol`, Digital Signature Triage
 * **Linux & SIEM Threat Hunting:** Linux CLI (Bash, `cron`, `chmod`, `find`, `ss`, `git`), KC7 Cyber (Azure Data Explorer / KQL), PowerShell (`Get-FileHash`, `-EncodedCommand`)
-* **Threat Intel & Decoding:** VirusTotal, GCHQ CyberChef, LOLBAS Project, Email Header Analysis (SPF/DKIM/DMARC), Python (`base64` / `UTF-16LE` Decoding & Log Parsing)
+* **Threat Intel & Decoding:** VirusTotal, GCHQ CyberChef, LOLBAS Project, Email Header Analysis (SPF/DKIM/DMARC), MITRE ATT&CK Matrix, Python (`base64` / `UTF-16LE` Decoding & Log Parsing)

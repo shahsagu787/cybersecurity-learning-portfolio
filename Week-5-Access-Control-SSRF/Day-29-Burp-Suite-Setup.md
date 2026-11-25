@@ -54,7 +54,7 @@ Opened `https://httpbin.org/forms/post` inside Burp's built-in Chromium browser 
 
 *(Screenshot: Submitting the baseline HTTPS form inside Burp Suite's built-in Chromium browser prior to proxy interception)*
 
-#### Step 2: Baseline Request & Server Response in Burp Repeater (`beforemodification.jpg`)
+#### Step 2: Baseline Request & Server Response in Burp Repeater (`beforemodification.png`)
 
 Sent the intercepted `POST /post HTTP/2` request directly to **Burp Repeater** (`Ctrl + R`), turned **Intercept off**, and clicked **Send** to record the unaltered baseline:
 
@@ -73,7 +73,7 @@ Sent the intercepted `POST /post HTTP/2` request directly to **Burp Repeater** (
 
 *(Screenshot: Unmodified `POST /post HTTP/2` request in Burp Repeater returning a `200 OK` JSON baseline response)*
 
-#### Step 3: Modifying Request Body Parameters & Verifying Response (`aftermodification.jpg`)
+#### Step 3: Modifying Request Body Parameters & Verifying Response (`aftermodification.png`)
 
 Directly inside Burp Repeater's **Request** pane, I bypassed the browser form completely and tampered with two URL-encoded body parameters before clicking **Send**:
 

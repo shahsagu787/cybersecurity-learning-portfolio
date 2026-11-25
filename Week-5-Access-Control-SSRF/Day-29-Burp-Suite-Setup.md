@@ -51,7 +51,7 @@ Test-NetConnection -ComputerName testphp.vulnweb.com -Port 80
 
 Opened `https://httpbin.org/forms/post` inside Burp's built-in Chromium browser and filled out the form with baseline test values (`Customer name: Sagar`, `Pizza Size: Medium`, `Toppings: Onion, Mushroom`, `Delivery instructions: Original Request`) before toggling **Intercept on** and clicking **Submit order**.
 
-
+![Burp Built-in Chromium Form](chromiumSS.png)
 *(Screenshot: Submitting the baseline HTTPS form inside Burp Suite's built-in Chromium browser prior to proxy interception)*
 
 #### Step 2: Baseline Request & Server Response in Burp Repeater (`beforemodification.png`)
@@ -70,7 +70,7 @@ Sent the intercepted `POST /post HTTP/2` request directly to **Burp Repeater** (
 
 * **Server Response:** `HTTP/2 200 OK` (`Content-Type: application/json`, `Content-Length: 1362`, total size `1,684 bytes` in `219 ms`).
 
-
+![Burp Repeater Before Modification](beforemodification.png)
 *(Screenshot: Unmodified `POST /post HTTP/2` request in Burp Repeater returning a `200 OK` JSON baseline response)*
 
 #### Step 3: Modifying Request Body Parameters & Verifying Response (`aftermodification.png`)
@@ -105,7 +105,7 @@ Directly inside Burp Repeater's **Request** pane, I bypassed the browser form co
   
   ```
 
-
+![Burp Repeater After Modification](aftermodification.png)
 *(Screenshot: Tampering with `custname` and `comments` directly inside Burp Repeater, with `Content-Length` auto-updated to `169` and the server echoing the modified values in JSON)*
 
 ### :bulb: Conclusion & Security Takeaway

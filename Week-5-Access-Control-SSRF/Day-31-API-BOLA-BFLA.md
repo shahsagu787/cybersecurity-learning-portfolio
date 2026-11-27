@@ -28,7 +28,7 @@ In PortSwigger's *User role can be modified in user profile* lab, logging in as 
 2. Added `"roleid": 2` to the JSON request body alongside `"email": "abc@xyz.com"` and clicked **Send**.
 3. The server returned `HTTP/2 302 Found` (`Location: /my-account`) with `"roleid": 2` reflected in the JSON response body (`Content-Type: application/json`), elevating `wiener`'s role and unlocking `/admin` access (`wiener` and `carlos` visible on the admin panel).
 
-![Burp Repeater JSON RoleID Tampering](RoleID1TORoleID2.jpg)
+![Burp Repeater JSON RoleID Tampering](RoleID1TORoleID2.png)
 *(Screenshot: Modifying the JSON payload in Burp Repeater to include `"roleid": 2` on `POST /my-account/change-email` and receiving `"roleid": 2` in the server response)*
 
 ### :eyes: Part 3: Spotting IDOR / BOLA in Access Logs

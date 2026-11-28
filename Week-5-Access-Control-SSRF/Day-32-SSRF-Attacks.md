@@ -43,9 +43,9 @@ Vulnerable Web / App Server
 
 #### Lab 1: Basic SSRF Against the Local Server
 
-* **Discovery & Tampering (`stockApiUpdate.jpg`):** In `POST /product/stock`, the `stockApi` parameter originally pointed to a stock check URL (`http%3A%2F%2Fstock.weliketoshop.net%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D1%26storeId%3D2`). Modifying `stockApi` in **Burp Repeater** to `http://localhost/admin` returned the local `/admin` HTML view with `wiener` and `carlos` deletion links.
+* **Discovery & Tampering (`stockApiUpdate.png`):** In `POST /product/stock`, the `stockApi` parameter originally pointed to a stock check URL (`http%3A%2F%2Fstock.weliketoshop.net%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D1%26storeId%3D2`). Modifying `stockApi` in **Burp Repeater** to `http://localhost/admin` returned the local `/admin` HTML view with `wiener` and `carlos` deletion links.
 
-![SSRF Localhost Admin Response in Burp Repeater](stockApiUpdate.jpg)
+![SSRF Localhost Admin Response in Burp Repeater](stockApiUpdate.png)
 *(Screenshot: Server response showing `/admin` user management actions when `stockApi=http://localhost/admin`)*
 
 * **Execution & Result (`changedApi.png`):** Sending `stockApi=http://localhost/admin/delete?username=carlos` in Repeater triggered a `302 Found` redirect to `/admin`, removed `carlos` in the sandbox, and marked the lab as **Solved**.
@@ -55,9 +55,9 @@ Vulnerable Web / App Server
 
 #### Lab 2: Basic SSRF Against Another Back-End System
 
-* **Discovery (`intruderInAPI.jpg`):** Instead of `localhost`, the target service resided on another host in the internal back-end network (`192.168.0.x` subnet on port `8080`). Using **Burp Intruder** to iterate the final IP octet identified host `150` (`http://192.168.0.150:8080/admin`) returning `200 OK` (`Length: 3378`) with the internal admin user list.
+* **Discovery (`intruderInAPI.png`):** Instead of `localhost`, the target service resided on another host in the internal back-end network (`192.168.0.x` subnet on port `8080`). Using **Burp Intruder** to iterate the final IP octet identified host `150` (`http://192.168.0.150:8080/admin`) returning `200 OK` (`Length: 3378`) with the internal admin user list.
 
-![Burp Intruder Internal Subnet Scan for SSRF](intruderInAPI.jpg)
+![Burp Intruder Internal Subnet Scan for SSRF](intruderInAPI.png)
 *(Screenshot: Burp Intruder identifying active internal back-end host `192.168.0.150:8080/admin` with `200 OK` response)*
 
 * **Execution & Result (`deleteCarlosOn150.png`):** Sent `stockApi=http://192.168.0.150:8080/admin/delete?username=carlos` in **Burp Repeater**, receiving `302 Found` (`Location: http://192.168.0.150:8080/admin`), removing `carlos` in the sandbox, and marking the lab as **Solved**.
